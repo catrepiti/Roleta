@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Outfit", sans-serif;
+  
+  --color-brand-primary: #e1662f; /* Orange */
+  --color-brand-secondary: #c54824; /* Red-Orange */
+  --color-brand-accent: #fb9a08; /* Yellow */
+  --color-brand-dark: #9b0638; /* Wine/Borgonha */
+  --color-brand-deep: #5b0421; /* Deep Wine */
+}
+
+@layer base {
+  body {
+    @apply bg-[#250917] text-white antialiased selection:bg-brand-primary selection:text-white;
+    background-image: 
+      radial-gradient(circle at 0% 0%, #3d1026 0%, transparent 50%),
+      radial-gradient(circle at 100% 100%, #1a0610 0%, transparent 50%);
+  }
+}
+
+.glass {
+  @apply bg-white/5 backdrop-blur-xl border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.3)];
+}
+
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-accent to-brand-primary;
+}
+
+.dot-pattern {
+  background-image: radial-gradient(#e1662f 0.5px, transparent 0.5px);
+  background-size: 24px 24px;
+  @apply opacity-[0.15];
+}
+
+@keyframes shimmer {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(100%); }
+}
+
+.animate-shimmer {
+  animation: shimmer 2s infinite;
+}
